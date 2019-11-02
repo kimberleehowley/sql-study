@@ -1,0 +1,7 @@
+-- REVISING AGGREGATIONS - THE COUNT FUNCTION 
+-- Query a count of the number of cities in CITY having a Population larger than 100,000.
+-- City table has fields: ID (NUMBER), NAME (VARCHAR), COUNTRYCODE(VARCHAR), DISTRICT(VARCHAR), POPULATION(VARCHAR)
+
+SELECT COUNT(ID)
+FROM CITY
+WHERE POPULATION > 100000
