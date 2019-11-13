@@ -7,3 +7,7 @@ Forgetting it can cause negative consequence...e.g. bringing down Amazon. Instea
 *WHERE 1=1*
 
 _Thanks to Jim Warner for the story_. 
+
+## Patterns I need to work on 
+- CASTING, especially with integer types 
+- GROUP BY 
