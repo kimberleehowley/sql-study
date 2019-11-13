@@ -19,5 +19,26 @@ ORDER BY company, street, city, st;`
 - So, query what we're expecting from data and see what's there to inspect. 
 - We can check for "WHERE <value> IS NULL" when we want to look for missing data sets. 
 
+### Checking for inconsistent values 
+- GROUP BY can help find inconsistent values, e.g. scanning through and seeing what names have different spellings here: 
+
+`SELECT company, COUNT(*) AS company_count 
+FROM meat_poultry_egg_inspect
+-- Groups by company name, then can scan list 
+GROUP BY company 
+ORDER BY company ASC;` 
+
+### Checking for malformed values with length() 
+- Some values (like Zip) need to be a certain length, and we can use the string function to confirm if they are where they should be, e.g. 
+
+`-- SELECT length of zip, and the number of values that are in each of those lengths 
+SELECT length(zip), count(*) AS length_count
+FROM meat_poultry_egg_inspect
+-- GROUP BY length of zip to see the number of values at each length 
+GROUP BY length(zip)
+ORDER BY length(zip) ASC;`
+
 ### Other notes 
 - Make a list of all potential errors first and then run cleanup tasks. 
+
+## Modifying tables, columns, and data 
