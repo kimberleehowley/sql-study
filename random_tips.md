@@ -11,3 +11,4 @@ _Thanks to Jim Warner for the story_.
 ## Patterns I need to work on 
 - CASTING, especially with integer types 
 - GROUP BY 
+- HAVING 
