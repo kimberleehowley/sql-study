@@ -12,3 +12,6 @@ _Thanks to Jim Warner for the story_.
 - CASTING, especially with integer types 
 - GROUP BY 
 - HAVING 
+
+## More SQL resources
+- https://github.com/NUKnightLab/sql-mysteries 
