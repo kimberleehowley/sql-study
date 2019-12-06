@@ -1,1 +1,2 @@
 - Aggregate vs. surrogate 
+- Different database types 
