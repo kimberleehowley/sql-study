@@ -42,3 +42,96 @@ ORDER BY length(zip) ASC;`
 - Make a list of all potential errors first and then run cleanup tasks. 
 
 ## Modifying tables, columns, and data 
+
+### ALTER TABLE 
+- ALTER TABLE ets us ADD COLUMN, ALTER COLUMN, DROP COLUMN 
+_(Vs. UPDATE table, which lets us change values in a column.)_
+`ALTER TABLE table_name ADD COLUMN column_name data_type;` 
+`ALTER TABLE table_name DROP COLUMN column_name;` 
+- Changing the data type of a column: 
+`ALTER TABLE table_name ALTER COLUMN column_name SET DATA TYPE data_type;`
+- Add a NOT NULL constraint:  
+`ALTER TABLE table_name ALTER COLUMN column_name SET NOT NULL`; 
+_Adding a constraint means all rows have to be evaluated, which can be timely_. 
+- Remove the constraint: 
+`ALTER TABLE table_name ALTER COLUMN column_name DROP NOT NULL`; 
+
+### MODIFY with UPDATE 
+- Basic syntax: 
+
+`UPDATE table_name 
+SET column = value;` 
+
+- Updating multiple at a time: 
+
+`UPDATE table_name 
+SET column_a = value, 
+    column_b = value;`
+
+- Updating a specific row: 
+
+`UPDATE table_name 
+SET column = value
+WHERE criteria;` 
+
+- Updating one table with values from another, using a subquery: 
+
+`UPDATE table_name
+SET column_name = (SELECT column_name
+                    FROM table_name_b
+                    WHERE table_name.column = table_name_b.column)
+WHERE EXISTS (SELECT column_name 
+                FROM table_b
+                WHERE table.column = table_b.column);`
+
+### Creating backup tables  
+- Use SELECT * to create identical backups, e.g. 
+
+`CREATE TABLE table_name_backup AS 
+SELECT * FROM original_table;`
+
+- Confirm by counting the number of rows in each: 
+
+`SELECT 
+    (SELECT count(*) FROM table_name) AS original, 
+    (SELECT count(*) FROM table_name_backup) AS backup;`
+
+### Restoring missing column values 
+
+#### Creating column copies
+- Useful to create copies of just column values using ADD COLUMN before making any column-wide updates, just in case, e.g. 
+`ALTER TABLE table_name ADD COLUMN column_copy data_type; 
+UPDATE table_name SET column_copy = original_column;`
+- Confirm this worked by selecting both the column and column-copy values and scanning that they look as expected. 
+- Then, if you mess up later, you can run an update statement that sets the messed up column back to its original values: 
+
+`UPDATE meat_poultry_egg_inspect 
+SET st = st_copy`; 
+
+#### Updating rows where values missing 
+- Use an UPDATE statement with criteria that SETs missing values where the column is empty. 
+
+### Updating values for consistency 
+- Create a copy of inconsistent data column. 
+
+`ALTER TABLE table_name 
+ADD COLUMN column_copy varchar(100);` 
+
+`UPDATE table_name 
+SET column_copy = column;` 
+
+- Work in the new column to avoid messing up original data. 
+- Use update statements with criteria. 
+
+`UPDATE table_name 
+SET column_copy = consistent value
+WHERE column LIKE inconsistent value;`
+
+- Verify your work: 
+`SELECT column, column_copy
+FROM column
+WHERE column LIKE inconsistent value;`
+
+
+
+
