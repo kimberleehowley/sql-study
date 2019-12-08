@@ -44,7 +44,7 @@ ORDER BY length(zip) ASC;`
 ## Modifying tables, columns, and data 
 
 ### ALTER TABLE 
-- ALTER TABLE ets us ADD COLUMN, ALTER COLUMN, DROP COLUMN 
+- ALTER TABLE lets us ADD COLUMN, ALTER COLUMN, DROP COLUMN 
 _(Vs. UPDATE table, which lets us change values in a column.)_
 `ALTER TABLE table_name ADD COLUMN column_name data_type;` 
 `ALTER TABLE table_name DROP COLUMN column_name;` 
@@ -132,6 +132,27 @@ WHERE column LIKE inconsistent value;`
 FROM column
 WHERE column LIKE inconsistent value;`
 
+### Repairing zip codes using concatenation
+- Create a copy column, as before. 
+- Use concatenation symbol to add the missing zeros, or any values, to the zip, or any column, e.g. 
 
+`UPDATE meat_poultry_egg_inspect 
+SET zip = '00' || zip
+WHERE st IN ('PR', 'VI') AND length(zip) = 3;`
 
+### Updating values across tables 
+- You can connect tables with subqueries and the WHERE EXISTS keyword to update specific values 
+- `WHERE EXISTS` functions kind of like joins, but in subqueries 
 
+## Deleting unnecessary data 
+- `DELETE FROM` for removing rows 
+* To remove all rows: `DELETE FROM table_name;`
+* Only selected rows: `DELETE FROM table_name WHERE _criteria;`
+
+- `ALTER TABLE` for deleting columns: 
+* `ALTER TABLE table_name DROP COLUMN column_name;`
+
+- `DROP TABLE` to get rid of entire table 
+* `DROP TABLE table_name`
+
+## Using transaction blocks to save or revert changes 
