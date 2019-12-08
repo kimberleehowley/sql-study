@@ -156,3 +156,10 @@ WHERE st IN ('PR', 'VI') AND length(zip) = 3;`
 * `DROP TABLE table_name`
 
 ## Using transaction blocks to save or revert changes 
+- Transaction blocks help prevent errors from changes to tables that are final (e.g. updating and removing columns)
+- They wrap SQL statements 
+- `START TRANSACTION`: start the transaction. 
+- `COMMIT`: if the update you want to make looks good, use this to make it permanent. 
+- `ROLLBACK`: if the updates you want look bad, run this until you're satisfied with them (then commit) 
+
+## Improving performance when updating large tables 
