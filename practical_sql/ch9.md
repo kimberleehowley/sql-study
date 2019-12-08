@@ -163,3 +163,6 @@ WHERE st IN ('PR', 'VI') AND length(zip) = 3;`
 - `ROLLBACK`: if the updates you want look bad, run this until you're satisfied with them (then commit) 
 
 ## Improving performance when updating large tables 
+- In PostgresSQL, every time you add a column with values to a table can increase size, because the database creates a new version of each row every time the value is updated, but doesn't get rid of the old. 
+- Copying the entire tale over actually saves disk space. 
+- You can use the `RENAME TO` clause to change table names, so you can change a temp and backup tables to the original table name instead of adding column values. 
