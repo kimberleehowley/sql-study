@@ -8,3 +8,5 @@
 - A CROSS JOIN returns all possible matches 
 - Use `WHERE value IS NULL` with Joins to find missing values 
 - Dot notation specifies column names after te table name 
+- You can create the alias for the table name in the FROM clause 
+- JOIN also useful for comparing old data to new 
