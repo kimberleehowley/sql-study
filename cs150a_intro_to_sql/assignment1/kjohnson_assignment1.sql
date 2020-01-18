@@ -3,7 +3,7 @@
    CS 150A, Spring 2020 */
 
 /* Query 0 */ 
-select user(), current_date(); 
+SELECT user(), current_date(); 
 
 /* Query 1 */ 
 DROP DATABASE zoo; 
@@ -46,7 +46,9 @@ SELECT *
 FROM animal;
 
 /* Query 7 */ 
-SELECT animal_name, animal_type FROM animal;
+SELECT animal_name, animal_type 
+FROM animal;
 
 /* Query 8 */ 
-SELECT animal_name, animal_id, animal_cost, animal_dob, animal_acquired FROM animal;
+SELECT animal_name, animal_id, animal_cost, animal_dob, animal_acquired 
+FROM animal;

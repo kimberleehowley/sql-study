@@ -1,11 +1,11 @@
-mysql> source /Users/kimberleejohnson/Documents/SQL/sql-study/cs150a_intro_to_sql/kjohnson_assignment1.sql
+mysql> source /Users/kimberleejohnson/Documents/SQL/sql-study/cs150a_intro_to_sql/assignment1/kjohnson_assignment1.sql
 --------------
 /* Assignment1.sql
    Kimberlee Johnson
    CS 150A, Spring 2020 */
 
 /* Query 0 */ 
-select user(), current_date()
+SELECT user(), current_date()
 --------------
 
 +----------------+----------------+
@@ -20,7 +20,7 @@ select user(), current_date()
 DROP DATABASE zoo
 --------------
 
-Query OK, 1 row affected (0.12 sec)
+Query OK, 1 row affected (0.04 sec)
 
 --------------
 CREATE DATABASE IF NOT EXISTS zoo
@@ -47,7 +47,7 @@ CREATE TABLE animal (
 )
 --------------
 
-Query OK, 0 rows affected, 1 warning (0.04 sec)
+Query OK, 0 rows affected, 1 warning (0.03 sec)
 
 --------------
 /* Query 3 */ 
@@ -55,7 +55,7 @@ INSERT INTO animal VALUES
     (26, 'Grace', 'Panther', 1000.00, '2019-07-04 11:00:00', '2019-07-04')
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO animal VALUES 
@@ -102,7 +102,7 @@ SHOW TABLES
 +---------------+
 | animal        |
 +---------------+
-1 row in set (0.01 sec)
+1 row in set (0.00 sec)
 
 --------------
 /* Query 5 */ 
@@ -119,7 +119,7 @@ DESC animal
 | animal_dob      | datetime              | NO   |     | NULL    |       |
 | animal_acquired | date                  | NO   |     | NULL    |       |
 +-----------------+-----------------------+------+-----+---------+-------+
-6 rows in set (0.00 sec)
+6 rows in set (0.01 sec)
 
 --------------
 /* Query 6 */ 
@@ -141,7 +141,8 @@ FROM animal
 
 --------------
 /* Query 7 */ 
-SELECT animal_name, animal_type FROM animal
+SELECT animal_name, animal_type 
+FROM animal
 --------------
 
 +-------------+-------------+
@@ -158,7 +159,8 @@ SELECT animal_name, animal_type FROM animal
 
 --------------
 /* Query 8 */ 
-SELECT animal_name, animal_id, animal_cost, animal_dob, animal_acquired FROM animal
+SELECT animal_name, animal_id, animal_cost, animal_dob, animal_acquired 
+FROM animal
 --------------
 
 +-------------+-----------+-------------+---------------------+-----------------+
