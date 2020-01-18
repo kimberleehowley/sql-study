@@ -1,0 +1,176 @@
+mysql> source /Users/kimberleejohnson/Documents/SQL/sql-study/cs150a_intro_to_sql/kjohnson_assignment1.sql
+--------------
+/* Assignment1.sql
+   Kimberlee Johnson
+   CS 150A, Spring 2020 */
+
+/* Query 0 */ 
+select user(), current_date()
+--------------
+
++----------------+----------------+
+| user()         | current_date() |
++----------------+----------------+
+| root@localhost | 2020-01-17     |
++----------------+----------------+
+1 row in set (0.01 sec)
+
+--------------
+/* Query 1 */ 
+DROP DATABASE zoo
+--------------
+
+Query OK, 1 row affected (0.12 sec)
+
+--------------
+CREATE DATABASE IF NOT EXISTS zoo
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+Database changed
+--------------
+/* Query 2 */ 
+DROP TABLE IF EXISTS animal
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE TABLE animal (
+    animal_id INTEGER NOT NULL, 
+    animal_name VARCHAR(25) NULL, 
+    animal_type VARCHAR(25) NOT NULL, 
+    animal_cost DECIMAL(7, 2) UNSIGNED NOT NULL, 
+    animal_dob DATETIME NOT NULL, 
+    animal_acquired DATE NOT NULL 
+)
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.04 sec)
+
+--------------
+/* Query 3 */ 
+INSERT INTO animal VALUES 
+    (26, 'Grace', 'Panther', 1000.00, '2019-07-04 11:00:00', '2019-07-04')
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+INSERT INTO animal VALUES 
+    (29, 'Frankie', 'Flamingo', 5000.00, '2019-10-12 11:00:00', '2019-10-12')
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO animal VALUES 
+    (42, 'Bianca', 'Leopard', 3000.00, '2018-10-12 11:00:00', '2018-10-12')
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO animal VALUES 
+    (57, 'Magoo', 'Lion', 1000.00, '2017-03-04 11:00:00', '2017-03-04')
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO animal VALUES 
+    (31, 'Tofu', 'Tiger', 7000.00, '2016-05-04 11:00:00', '2016-05-04')
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO animal VALUES 
+    (31, 'Chloe', 'Kangaroo', 8000.00, '2015-01-01 11:00:00', '2015-01-01')
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+/* Query 4 */ 
+SHOW TABLES
+--------------
+
++---------------+
+| Tables_in_zoo |
++---------------+
+| animal        |
++---------------+
+1 row in set (0.01 sec)
+
+--------------
+/* Query 5 */ 
+DESC animal
+--------------
+
++-----------------+-----------------------+------+-----+---------+-------+
+| Field           | Type                  | Null | Key | Default | Extra |
++-----------------+-----------------------+------+-----+---------+-------+
+| animal_id       | int                   | NO   |     | NULL    |       |
+| animal_name     | varchar(25)           | YES  |     | NULL    |       |
+| animal_type     | varchar(25)           | NO   |     | NULL    |       |
+| animal_cost     | decimal(7,2) unsigned | NO   |     | NULL    |       |
+| animal_dob      | datetime              | NO   |     | NULL    |       |
+| animal_acquired | date                  | NO   |     | NULL    |       |
++-----------------+-----------------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+--------------
+/* Query 6 */ 
+SELECT *
+FROM animal
+--------------
+
++-----------+-------------+-------------+-------------+---------------------+-----------------+
+| animal_id | animal_name | animal_type | animal_cost | animal_dob          | animal_acquired |
++-----------+-------------+-------------+-------------+---------------------+-----------------+
+|        26 | Grace       | Panther     |     1000.00 | 2019-07-04 11:00:00 | 2019-07-04      |
+|        29 | Frankie     | Flamingo    |     5000.00 | 2019-10-12 11:00:00 | 2019-10-12      |
+|        42 | Bianca      | Leopard     |     3000.00 | 2018-10-12 11:00:00 | 2018-10-12      |
+|        57 | Magoo       | Lion        |     1000.00 | 2017-03-04 11:00:00 | 2017-03-04      |
+|        31 | Tofu        | Tiger       |     7000.00 | 2016-05-04 11:00:00 | 2016-05-04      |
+|        31 | Chloe       | Kangaroo    |     8000.00 | 2015-01-01 11:00:00 | 2015-01-01      |
++-----------+-------------+-------------+-------------+---------------------+-----------------+
+6 rows in set (0.00 sec)
+
+--------------
+/* Query 7 */ 
+SELECT animal_name, animal_type FROM animal
+--------------
+
++-------------+-------------+
+| animal_name | animal_type |
++-------------+-------------+
+| Grace       | Panther     |
+| Frankie     | Flamingo    |
+| Bianca      | Leopard     |
+| Magoo       | Lion        |
+| Tofu        | Tiger       |
+| Chloe       | Kangaroo    |
++-------------+-------------+
+6 rows in set (0.00 sec)
+
+--------------
+/* Query 8 */ 
+SELECT animal_name, animal_id, animal_cost, animal_dob, animal_acquired FROM animal
+--------------
+
++-------------+-----------+-------------+---------------------+-----------------+
+| animal_name | animal_id | animal_cost | animal_dob          | animal_acquired |
++-------------+-----------+-------------+---------------------+-----------------+
+| Grace       |        26 |     1000.00 | 2019-07-04 11:00:00 | 2019-07-04      |
+| Frankie     |        29 |     5000.00 | 2019-10-12 11:00:00 | 2019-10-12      |
+| Bianca      |        42 |     3000.00 | 2018-10-12 11:00:00 | 2018-10-12      |
+| Magoo       |        57 |     1000.00 | 2017-03-04 11:00:00 | 2017-03-04      |
+| Tofu        |        31 |     7000.00 | 2016-05-04 11:00:00 | 2016-05-04      |
+| Chloe       |        31 |     8000.00 | 2015-01-01 11:00:00 | 2015-01-01      |
++-------------+-----------+-------------+---------------------+-----------------+
+6 rows in set (0.00 sec)
+
+mysql> notee
