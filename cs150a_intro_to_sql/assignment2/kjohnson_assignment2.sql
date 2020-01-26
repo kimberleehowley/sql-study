@@ -48,7 +48,7 @@ SELECT product_name, list_price, discount_percent,
 list_price * (discount_percent/100) AS discount_amount, 
 list_price - (list_price * (discount_percent/100)) AS discount_price 
 FROM product
-ORDER BY discount_price DESC
+ORDER BY discount_price
 LIMIT 5; 
 
 /* Query 9 */
