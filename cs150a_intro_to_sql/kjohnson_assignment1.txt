@@ -1,4 +1,0 @@
-mysql> source /Users/kimberleejohnson/Documents/SQL/sql-study/cs150a_intro_to_sql/kjohnson_assignment1.sql
-ERROR: 
-Failed to open file '/Users/kimberleejohnson/Documents/SQL/sql-study/cs150a_intro_to_sql/kjohnson_assignment1.sql', error: 2
-mysql> tee /Users/kimberleejohnson/Documents/SQL/sql-study/cs150a_intro_to_sql/assignment1/kjohnson_assignment1.txt
