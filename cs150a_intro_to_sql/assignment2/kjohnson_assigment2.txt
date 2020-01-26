@@ -104,7 +104,7 @@ Database changed
 |       66669 |
 |       77779 |
 +-------------+
-7 rows in set (0.00 sec)
+7 rows in set (0.01 sec)
 
 +------------------+------------+------------------+-----------------+----------------+
 | product_name     | list_price | discount_percent | discount_amount | discount_price |
@@ -129,7 +129,7 @@ Database changed
 | Stuart, George  |
 | Victor, George  |
 +-----------------+
-8 rows in set (0.01 sec)
+8 rows in set (0.00 sec)
 
 +-------------+-------------------------+---------+--------------------+----------+
 | customer_id | line1                   | line2   | city_and_state     | zip_code |
