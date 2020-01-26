@@ -52,7 +52,7 @@ ORDER BY discount_price
 LIMIT 5; 
 
 /* Query 9 */
-SELECT CONCAT(last_name, ', ', first_name)
+SELECT CONCAT(last_name, ', ', first_name) AS full_name
 FROM employee; 
 
 /* Query 10 */
@@ -60,6 +60,7 @@ SELECT customer_id, line1, line2, CONCAT(city, ', ', state) AS city_and_state, z
 FROM address; 
 
 /* Query 11 */
+/* I'm deliberately deciding NOT to use DISTINCT here, even though there is a name that seems to have been stored twice, because the instructions specify each name, not each unique name. */
 SELECT category_id, product_name
 FROM product; 
 
