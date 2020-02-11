@@ -1,0 +1,174 @@
+mysql> source /Users/kimberleejohnson/Documents/SQL/sql-study/cs150a_intro_to_sql/assignment4/kjohnson_assignment4.sql
+--------------
+/* Assignment4.sql
+   Kimberlee Johnson
+   CS 150A, Spring 2020 */
+
+
+/* Query 0 */
+USE bookstore
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+/* Query 1 */
+CREATE TABLE jobs (
+job_id INT PRIMARY KEY AUTO_INCREMENT, 
+job_title VARCHAR(50), 
+min_salary INT, 
+max_salary INT
+)
+--------------
+
+Query OK, 0 rows affected (0.15 sec)
+
+--------------
+/* Query 2*/
+INSERT INTO jobs(job_id, job_title, min_salary, max_salary)
+VALUES 
+(1, 'President', 100000, 100000), 
+(2, 'Marketing', 5000, 75000), 
+(4, 'Sales Manager', 15000, 60000), 
+(8, 'Sales Rep', 10000, 30000), 
+(16, 'Programmer', 60000, 120000), 
+(32, 'Code Debugger', 60000, NULL), 
+(64, 'DBA', 60000, NULL), 
+(128, 'RD', 60000, NULL)
+--------------
+
+Query OK, 8 rows affected (0.02 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+--------------
+/* Query 3*/
+ALTER TABLE jobs 
+	ADD date_added DATE
+--------------
+
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+--------------
+/* Query 4*/
+SELECT * 
+FROM jobs
+--------------
+
++--------+---------------+------------+------------+------------+
+| job_id | job_title     | min_salary | max_salary | date_added |
++--------+---------------+------------+------------+------------+
+|      1 | President     |     100000 |     100000 | NULL       |
+|      2 | Marketing     |       5000 |      75000 | NULL       |
+|      4 | Sales Manager |      15000 |      60000 | NULL       |
+|      8 | Sales Rep     |      10000 |      30000 | NULL       |
+|     16 | Programmer    |      60000 |     120000 | NULL       |
+|     32 | Code Debugger |      60000 |       NULL | NULL       |
+|     64 | DBA           |      60000 |       NULL | NULL       |
+|    128 | RD            |      60000 |       NULL | NULL       |
++--------+---------------+------------+------------+------------+
+8 rows in set (0.00 sec)
+
+--------------
+/* Query 5*/
+SHOW COLUMNS FROM jobs
+--------------
+
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| job_id     | int         | NO   | PRI | NULL    | auto_increment |
+| job_title  | varchar(50) | YES  |     | NULL    |                |
+| min_salary | int         | YES  |     | NULL    |                |
+| max_salary | int         | YES  |     | NULL    |                |
+| date_added | date        | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.02 sec)
+
+--------------
+/* Query 6*/
+ALTER TABLE jobs 
+	DROP date_added
+--------------
+
+Query OK, 0 rows affected (0.15 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+--------------
+    
+/* Query 7*/
+RENAME TABLE jobs to jobs_backup
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+/* Query 8*/
+SHOW TABLES
+--------------
+
++---------------------+
+| Tables_in_bookstore |
++---------------------+
+| address             |
+| administrators      |
+| category            |
+| customer            |
+| employee            |
+| jobs_backup         |
+| orderitems          |
+| orders              |
+| product             |
+| store               |
+| vendor              |
++---------------------+
+11 rows in set (0.01 sec)
+
+--------------
+/* Query 9*/
+DROP TABLE IF EXISTS jobs_backup
+--------------
+
+Query OK, 0 rows affected (0.02 sec)
+
+--------------
+/* Query 9.5*/
+SHOW TABLES
+--------------
+
++---------------------+
+| Tables_in_bookstore |
++---------------------+
+| address             |
+| administrators      |
+| category            |
+| customer            |
+| employee            |
+| orderitems          |
+| orders              |
+| product             |
+| store               |
+| vendor              |
++---------------------+
+10 rows in set (0.01 sec)
+
+--------------
+/* Query 10*/
+ALTER TABLE store 
+	ADD phone_number varchar(15)
+--------------
+
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+--------------
+    
+/* Query 11*/
+ALTER TABLE store
+	DROP phone_number
+--------------
+
+Query OK, 0 rows affected (0.16 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> notee
