@@ -56,3 +56,10 @@ GROUP BY c.email_address
 HAVING number_of_products > 1; 
 
 /* Query 8 */
+SELECT v.vendor_id, COUNT(*)
+FROM vendor v
+INNER JOIN product p on v.vendor_id = p.vendor_id 
+WHERE p.list_price > 100
+GROUP BY v.vendor_id; 
+
+/* Query 9 */
