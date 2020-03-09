@@ -21,3 +21,11 @@ FROM category c
 INNER JOIN product p ON c.category_id = p.category_id
 GROUP BY c.category_name
 ORDER BY product_count DESC; 
+
+/* Query 4 */
+SELECT c.email_address, SUM(oi.item_price * oi.quantity) AS item_price_total, SUM(oi.discount_amount * oi.quantity) AS discount_amount_total
+FROM customer c 
+INNER JOIN orders o ON c.customer_id = o.customer_id
+INNER JOIN orderitems oi ON o.order_id = oi.order_id
+GROUP BY c.email_address
+ORDER BY item_price_total DESC; 
