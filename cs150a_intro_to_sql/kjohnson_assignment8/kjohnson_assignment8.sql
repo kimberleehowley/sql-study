@@ -29,3 +29,20 @@ INNER JOIN orders o ON c.customer_id = o.customer_id
 INNER JOIN orderitems oi ON o.order_id = oi.order_id
 GROUP BY c.email_address
 ORDER BY item_price_total DESC; 
+
+/* Query 5 */
+SELECT c.email_address, COUNT(DISTINCT o.order_id) AS order_count, SUM((oi.item_price - oi.discount_amount) * oi.quantity) AS order_total 
+FROM customer c 
+INNER JOIN orders o ON c.customer_id = o.customer_id
+INNER JOIN orderitems oi ON o.order_id = oi.order_id
+GROUP BY c.email_address
+ORDER BY order_total DESC;
+
+/* Query 6 */
+SELECT c.email_address, COUNT(DISTINCT o.order_id) AS order_count, SUM((oi.item_price - oi.discount_amount) * oi.quantity) AS order_total 
+FROM customer c 
+INNER JOIN orders o ON c.customer_id = o.customer_id
+INNER JOIN orderitems oi ON o.order_id = oi.order_id
+WHERE oi.item_price > 400
+GROUP BY c.email_address
+ORDER BY order_total DESC;
