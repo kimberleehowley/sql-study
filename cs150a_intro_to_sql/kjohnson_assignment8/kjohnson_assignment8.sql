@@ -46,3 +46,13 @@ INNER JOIN orderitems oi ON o.order_id = oi.order_id
 WHERE oi.item_price > 400
 GROUP BY c.email_address
 ORDER BY order_total DESC;
+
+/* Query 7 */
+SELECT c.email_address, COUNT(DISTINCT oi.product_id) AS number_of_products
+FROM customer c 
+INNER JOIN orders o ON c.customer_id = o.customer_id
+INNER JOIN orderitems oi ON o.order_id = oi.order_id
+GROUP BY c.email_address
+HAVING number_of_products > 1; 
+
+/* Query 8 */
