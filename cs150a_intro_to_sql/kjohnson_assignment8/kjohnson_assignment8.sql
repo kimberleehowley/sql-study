@@ -14,3 +14,10 @@ SELECT product_id, COUNT(DISTINCT order_id) as NumOrders
 FROM orderitems
 GROUP BY product_id 
 ORDER BY  NumOrders DESC; 
+
+/* Query 3 */
+SELECT c.category_name, COUNT(p.category_id) AS product_count, MAX(p.list_price) AS most_expensive_product 
+FROM category c 
+INNER JOIN product p ON c.category_id = p.category_id
+GROUP BY c.category_name
+ORDER BY product_count DESC; 
