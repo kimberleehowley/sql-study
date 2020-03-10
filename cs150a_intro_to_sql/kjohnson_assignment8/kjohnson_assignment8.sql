@@ -63,3 +63,13 @@ WHERE p.list_price > 100
 GROUP BY v.vendor_id; 
 
 /* Query 9 */
+SELECT p.vendor_id, p.category_id, COUNT(DISTINCT product_id) AS number_of_products, AVG(p.list_price) AS average_price
+FROM product p
+GROUP BY p.vendor_id, p.category_id
+HAVING number_of_products > 1; 
+
+/* Query 10 */
+SELECT COUNT(DISTINCT product_id)
+FROM product p 
+JOIN category c on p.category_id = c.category_id 
+WHERE c.category_name = 'printer';
