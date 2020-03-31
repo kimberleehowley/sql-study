@@ -14,7 +14,7 @@ WHERE c.category_id IN
 ORDER BY category_name; 
 
 /* Query 2 */
-SELECT product_name, list_price 
+SELECT product_name, list_price
 FROM product 
 WHERE list_price > ALL 
    (SELECT 
@@ -29,3 +29,8 @@ ORDER BY list_price DESC;
 	(SELECT *
      FROM product 
      WHERE category_id = c.category_id); 
+
+/* Query 4-9 */
+/* I had a rough weekend, and was laid off from my job this morning. 
+If there's any way I can do more of this assignment tomorrow or later 
+and submit for partial credit, I'd be grateful */
