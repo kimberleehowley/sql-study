@@ -1,0 +1,90 @@
+mysql> source /Users/kimberleejohnson/Documents/SQL/sql-study/cs150a_intro_to_sql/kjohnson_assignment9/kjohnson_assignment9.sql
+--------------
+/* kjohnson_assignment9.sql
+   Kimberlee Johnson
+   CS 150A, Spring 2020 */
+
+/* Query 0 */
+USE bookstore
+--------------
+
+Query OK, 0 rows affected (0.02 sec)
+
+--------------
+/* Query 1 */
+SELECT DISTINCT category_name 
+FROM category c 
+WHERE c.category_id IN 
+   (SELECT DISTINCT category_id 
+    FROM product)
+ORDER BY category_name
+--------------
+
++---------------+
+| category_name |
++---------------+
+| Book          |
+| CD            |
+| Computer      |
+| DVD           |
+| printer       |
+| Video         |
++---------------+
+6 rows in set (0.16 sec)
+
+--------------
+/* Query 2 */
+SELECT product_name, list_price
+FROM product 
+WHERE list_price > ALL 
+   (SELECT 
+    AVG(list_price) 
+    FROM product)
+ORDER BY list_price DESC
+--------------
+
++------------------------+------------+
+| product_name           | list_price |
++------------------------+------------+
+| HP Envy 750qe Desktop  |    2517.00 |
+| Dell Inspiron 17 5000  |    1415.00 |
+| HP Pavilion 15t Star   |    1299.00 |
+| Lenovo H50 Desktop     |    1199.00 |
+| Dell XPS 8700          |     999.00 |
+| Toshiba Satellite S55T |     989.99 |
+| HP Color LaserJet      |     599.00 |
++------------------------+------------+
+7 rows in set (0.01 sec)
+
+--------------
+/* Query 3 */
+ SELECT category_name
+ FROM category c
+ WHERE EXISTS 
+	(SELECT *
+     FROM product 
+     WHERE category_id = c.category_id)
+--------------
+
++---------------+
+| category_name |
++---------------+
+| Book          |
+| CD            |
+| Computer      |
+| DVD           |
+| printer       |
+| Video         |
++---------------+
+6 rows in set (0.01 sec)
+
+--------------
+/* Query 4-9 */
+/* I had a rough weekend, and was laid off from my job this morning. 
+If there's any way I can do more of this assignment tomorrow or later 
+and submit for partial credit, I'd be grateful */
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> notee
