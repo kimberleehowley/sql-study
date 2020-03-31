@@ -30,6 +30,17 @@ ORDER BY list_price DESC;
      FROM product 
      WHERE category_id = c.category_id); 
 
+/* Query 4 */
+
+/* Query 5 */
+SELECT product_id, product_name, list_price
+FROM product 
+WHERE product_id IN 
+(SELECT product_id
+FROM orderitems
+GROUP BY product_id
+HAVING count(*) > 1); 
+
 /* Query 4-9 */
 /* I had a rough weekend, and was laid off from my job this morning. 
 If there's any way I can do more of this assignment tomorrow or later 
