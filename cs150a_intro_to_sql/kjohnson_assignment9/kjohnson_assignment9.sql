@@ -50,3 +50,13 @@ WHERE order_id IN
 SELECT order_id
 FROM orderitems 
 WHERE item_price > 300); 
+
+/* Query 7 */ 
+SELECT last_name, first_name, email_address 
+FROM customer 
+WHERE customer_id IN 
+(
+SELECT customer_id
+FROM orders 
+WHERE order_id IN (1, 2, 3)
+); 
