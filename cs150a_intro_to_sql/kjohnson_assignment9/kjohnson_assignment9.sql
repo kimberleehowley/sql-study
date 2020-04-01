@@ -83,3 +83,12 @@ WHERE company_name LIKE 'H%'
 )
 )
 ); 
+
+/* Query 9 */ 
+SELECT product_id, product_name, list_price
+FROM product 
+WHERE product_id = ANY
+(SELECT product_id
+FROM orderitems
+GROUP BY product_id
+HAVING count(*) > 2); 
