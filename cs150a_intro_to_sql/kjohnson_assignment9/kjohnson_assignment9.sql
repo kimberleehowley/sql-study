@@ -60,3 +60,26 @@ SELECT customer_id
 FROM orders 
 WHERE order_id IN (1, 2, 3)
 ); 
+
+/* Query 8 */ 
+SELECT last_name, first_name, email_address 
+FROM customer 
+WHERE customer_id IN 
+(
+SELECT customer_id 
+FROM orders
+WHERE order_id IN (
+SELECT order_id
+FROM orderitems
+WHERE product_id IN (
+SELECT product_id 
+FROM product 
+WHERE vendor_id IN 
+(
+SELECT vendor_id
+FROM vendor 
+WHERE company_name LIKE 'H%'
+)
+)
+)
+); 
