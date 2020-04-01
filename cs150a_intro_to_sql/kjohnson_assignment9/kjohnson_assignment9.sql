@@ -31,6 +31,13 @@ ORDER BY list_price DESC;
      WHERE category_id = c.category_id); 
 
 /* Query 4 */
+SELECT email_address, order_id, order_date
+FROM customer 
+INNER JOIN orders on customer.customer_id = orders.customer_id
+WHERE order_date = 
+(SELECT MIN(order_date) 
+FROM orders 
+WHERE customer_id = customer.customer_id);
 
 /* Query 5 */
 SELECT product_id, product_name, list_price
