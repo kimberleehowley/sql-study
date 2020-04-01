@@ -41,7 +41,12 @@ FROM orderitems
 GROUP BY product_id
 HAVING count(*) > 1); 
 
-/* Query 4-9 */
-/* I had a rough weekend, and was laid off from my job this morning. 
-If there's any way I can do more of this assignment tomorrow or later 
-and submit for partial credit, I'd be grateful */
+/* Query 6 */ 
+SELECT DISTINCT last_name, first_name 
+FROM customer c
+INNER JOIN orders o on o.customer_id = c.customer_id  
+WHERE order_id IN 
+(
+SELECT order_id
+FROM orderitems 
+WHERE item_price > 300); 
