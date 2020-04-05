@@ -19,3 +19,14 @@ FROM customer_address;
 UPDATE customer_address
 SET ship_line1 = '1990 Westwood Blvd.'
 WHERE customer_id = 11119;
+
+/* Query 3 */
+CREATE OR REPLACE VIEW product_summary AS 
+SELECT product_id, COUNT(*) AS order_count, SUM(item_price) AS order_total
+FROM orderitems
+GROUP BY product_id; 
+
+SELECT * FROM product_summary; 
+
+-- To show just the column names, without a SELECT 
+SHOW COLUMNS FROM product_summary; 
