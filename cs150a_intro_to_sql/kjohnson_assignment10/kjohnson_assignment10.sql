@@ -14,3 +14,8 @@ INNER JOIN address a ON a.customer_id = c.customer_id;
     
 SELECT customer_id, last_name, first_name, ship_city, ship_state
 FROM customer_address; 
+
+/* Query 2 */
+UPDATE customer_address
+SET ship_line1 = '1990 Westwood Blvd.'
+WHERE customer_id = 11119;
