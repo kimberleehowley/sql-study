@@ -30,3 +30,13 @@ SELECT * FROM product_summary;
 
 -- To show just the column names, without a SELECT 
 SHOW COLUMNS FROM product_summary; 
+
+/* Query 4 */
+CREATE OR REPLACE VIEW cheap_products AS 
+SELECT *
+FROM product 
+WHERE list_price < 50
+ORDER BY list_price DESC
+WITH CHECK OPTION;
+
+SELECT * FROM cheap_products; 
