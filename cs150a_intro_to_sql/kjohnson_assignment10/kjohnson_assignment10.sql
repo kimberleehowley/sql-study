@@ -85,3 +85,7 @@ INNER JOIN vendor v ON p.vendor_id = v.vendor_id;
 
 -- Return all rows 
 SELECT * FROM reorder_info; 
+
+/* Query 9 */
+SELECT card_number, LENGTH(card_number) AS card_number_length, RIGHT(card_number, 4) AS last_four_digits, CONCAT('XXXX-XXXX-XXXX-', RIGHT(card_number, 4)) AS formatted_number
+FROM orders; 
