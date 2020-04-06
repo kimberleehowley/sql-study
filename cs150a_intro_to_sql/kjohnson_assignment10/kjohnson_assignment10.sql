@@ -51,3 +51,16 @@ VALUES(17888, 41, 'book db', 'Fundamental of Database Systems', 45.99,
 -- SELECT * 
 -- FROM cheap_products 
 -- WHERE product_id = 17888; 
+
+/* Query 6 */
+CREATE OR REPLACE VIEW contact AS 
+SELECT contact_fname, phone
+FROM vendor;
+
+-- Added DISTINCT in select clause to prevent updates 
+CREATE OR REPLACE VIEW contact AS 
+SELECT DISTINCT contact_fname, phone
+FROM vendor;
+
+-- Return all columns 
+SELECT * FROM contact; 
