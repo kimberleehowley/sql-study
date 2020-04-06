@@ -40,3 +40,14 @@ ORDER BY list_price DESC
 WITH CHECK OPTION;
 
 SELECT * FROM cheap_products; 
+
+/* Query 5 */
+INSERT INTO cheap_products (product_id, category_id, product_code, 
+product_name, list_price, description, discount_percent, date_added, vendor_id)
+VALUES(17888, 41, 'book db', 'Fundamental of Database Systems', 45.99, 
+'Fundamental of Database Systems Elmasri', 20.00, '2015-06-01 11:12:59', 2);
+
+-- Query to check work 
+-- SELECT * 
+-- FROM cheap_products 
+-- WHERE product_id = 17888; 
