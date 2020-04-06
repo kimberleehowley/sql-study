@@ -76,3 +76,12 @@ INNER JOIN product p ON oi.product_id = p.product_id;
 
 -- Returning all columns 
 SELECT * FROM order_items; 
+
+/* Query 8 */
+CREATE OR REPLACE VIEW reorder_info AS 
+SELECT p.product_id, p.product_name, v.contact_fname, v.phone
+FROM product p 
+INNER JOIN vendor v ON p.vendor_id = v.vendor_id; 
+
+-- Return all rows 
+SELECT * FROM reorder_info; 
