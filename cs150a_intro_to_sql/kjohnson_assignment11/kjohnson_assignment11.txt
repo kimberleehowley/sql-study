@@ -1,0 +1,51 @@
+MongoDB shell version v4.2.5
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("ba99258c-72d9-4fa7-b6fd-5f428f5b4820") }
+MongoDB server version: 4.2.5
+connecting to: mongodb://localhost:27017/library
+Implicit session: session { "id" : UUID("cccc9492-6699-4e6e-aedf-cfbba675617f") }
+MongoDB server version: 4.2.5
+library
+WriteResult({ "nInserted" : 1 })
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772255"), "display" : "Cory Barry" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772259"), "display" : "Peggy Marsh", "age" : 21 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde277225a"), "display" : "Betsy Malone", "age" : 24 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde277225b"), "display" : "Allen Horne", "age" : 20 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde277225c"), "display" : "Helena Hughes" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde277225d"), "display" : "Tony Miles", "age" : 23 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde277225f"), "display" : "Tyler Pope", "age" : 19 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772260"), "display" : "Thomas Duran", "age" : 18 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772261"), "display" : "Holly Anthony", "age" : 25 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772262"), "display" : "Iva Ramos", "age" : 24 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772263"), "display" : "Jerald Gaines", "age" : 41 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772264"), "display" : "Keith Cooley", "age" : 27 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772267"), "display" : "Desiree Rivas", "age" : 21 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde277226b"), "display" : "Angel Terrell", "age" : 20 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde277226d"), "display" : "Gloria Pitts", "age" : 22 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772270"), "display" : "Carlton Morton" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772272"), "display" : "Jeff Owens", "age" : 23 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772256"), "fname" : "robert", "lname" : "carter", "type" : "faculty" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772257"), "fname" : "kelsey", "lname" : "koch", "type" : "faculty" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772258"), "fname" : "cedric", "lname" : "baldwin", "type" : "faculty" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772270"), "fname" : "carlton", "lname" : "morton", "type" : "faculty" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772257"), "display" : "Kelsey Koch", "type" : "faculty" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772258"), "display" : "Cedric Baldwin", "type" : "faculty" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde277225e"), "display" : "Jimmie Love", "type" : "student" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772265"), "display" : "Iva McClain", "type" : "student" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772268"), "display" : "Marina King", "type" : "student" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde277226e"), "display" : "Zach Kelly", "type" : "student" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772270"), "display" : "Carlton Morton", "type" : "faculty" }
+{ "_id" : ObjectId("5eb0e8f06001a2cde277225a"), "fname" : "betsy", "lname" : "malone", "age" : 24 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde277225d"), "fname" : "tony", "lname" : "miles", "age" : 23 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772261"), "fname" : "holly", "lname" : "anthony", "age" : 25 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772262"), "fname" : "iva", "lname" : "ramos", "age" : 24 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772266"), "fname" : "rena", "lname" : "mathis", "age" : 23 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde277226e"), "fname" : "zach", "lname" : "kelly", "age" : 23 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772272"), "fname" : "jeff", "lname" : "owens", "age" : 23 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772273"), "fname" : "wilfred", "lname" : "fuller", "age" : 23 }
+{ "_id" : ObjectId("5eb0e8f06001a2cde2772274"), "fname" : "homer", "lname" : "goodman", "age" : 23 }
+{ "_id" : ObjectId("5eb1c9c9f717bbda96d3cd79"), "fname" : "Rachel", "lname" : "Cunningham", "age" : 24 }
+{ "_id" : ObjectId("5eb1ca98f717bbda96d3cd7a"), "fname" : "Rachel", "lname" : "Cunningham", "age" : 24 }
+{ "_id" : ObjectId("5eb1cbacf717bbda96d3cd7b"), "fname" : "Rachel", "lname" : "Cunningham", "age" : 24 }
+{ "_id" : ObjectId("5eb1cd926a0d0e2c43ec2f40"), "fname" : "Rachel", "lname" : "Cunningham", "age" : 24 }
+bye
